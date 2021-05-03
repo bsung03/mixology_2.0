@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import {BrowserRouter as Router,Switch, Route, Link} from 'react-router-dom'
 import './App.css';
 import { Container, Navbar, Nav } from 'react-bootstrap';
 import HomePage from './pages/homepage';
 import axios from 'axios';
-import Login from './pages/login';
+import LoginPage from './pages/loginPage';
+import IngredientsPage from './pages/ingredientsPage';
 
 
 class App extends React.Component {
@@ -15,6 +16,7 @@ class App extends React.Component {
 
     this.state = {
       title: "Mixolog",
+      user: ''
     }
 
   }
@@ -30,16 +32,30 @@ class App extends React.Component {
               <Navbar.Toggle className="border-0" aria-controls="navbar-toggle"/>
               <Navbar.Collapse id="navbar-toggle">
                 <Nav className="ml-auto">
-                    <Link className="nav-link">Home</Link>
+                    <Link className="nav-link" to="/">Home</Link>
+                    <Link className="nav-link" to="/login">Login</Link>
+                    <Link className="nav-link" to="/ingredients">Ingredients</Link>
                 </Nav>
               </Navbar.Collapse>
             </Navbar>
         </Container>
 
+        <Switch> 
 
-        <HomePage/>
-        <Login/>
-        
+          <Route path="/ingredients">
+           <IngredientsPage/>
+          </Route> 
+
+          <Route path="/login">
+           <LoginPage/>
+          </Route> 
+
+          <Route path="/">
+            <HomePage/>
+          </Route>
+
+        </Switch>    
+
       </Router>
     );
   }

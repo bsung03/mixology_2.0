@@ -4,9 +4,9 @@ import axios from 'axios';
 import { Button, Form } from 'react-bootstrap';
 
 
-class Login extends Component {
-    constructor(){
-        super()
+class LoginPage extends Component {
+    constructor(props){
+        super(props)
         this.state = {
             username: '',
             email: '',
@@ -78,4 +78,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default LoginPage;

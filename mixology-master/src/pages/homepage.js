@@ -1,11 +1,16 @@
-import React from 'react'
+import React, {Component} from 'react';
 
-function HomePage(props){
+class HomePage extends Component {
+    constructor(props){
+        super(props)
+    }
+    render(){
     return(
         <div>
-            <p>This is it cheif</p>
+            <h4>HomePage</h4>
         </div>
     );
+    }
 }
 
 export default HomePage
