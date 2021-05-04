@@ -1,6 +1,7 @@
 const router = require('express').Router();
 
 let Recipe = require('../models/recipe.model');
+let Ingredient = require('../models/ingredient.model');
 
 //---------------Get ALL Recipes----------------------//
 router.route('/').get((req,res) => {
@@ -29,14 +30,15 @@ router.route('/:id').get((req,res) => {
 router.route('/addingredient/:id').post((req,res) => {
     Recipe.findById(req.params.id).then(recipe => {
 
-        recipe.Recipe_Ingredients.push({
-            name: req.body.name,
-            measurement: req.body.measurement
-        })
-
-        recipe.save()
-        .then(() => res.json('Ingredient added to recipe'))
-        .catch(err => res.status(400).json('Error: ' + err))
+        Ingredient.find({name: req.body.name}).then(ingredient => {
+            recipe.Recipe_Ingredients.push({
+                name: req.body.name,
+                measurement: req.body.measurement
+            })
+            
+            recipe.save()
+            res.json("Added Ingredient to recipe")
+        }).catch(err => res.status(400).json('Error: ' + err))
 
     }).catch(err => res.status(400).json('Error: ' + err))
 })
@@ -46,7 +48,7 @@ router.route('/addingredient/:id').post((req,res) => {
 router.route('/clearingredients/:id').post((req,res) => {
     Recipe.findById(req.params.id).then(recipe => {
 
-        recipe.Recipe_Ingredients.splice(0, recipe.Recipe_Ingredients.length)
+        recipe.Recipe_Ingredients = []
 
         recipe.save()
         .then(() => res.json('Ingredients cleared from recipe'))
