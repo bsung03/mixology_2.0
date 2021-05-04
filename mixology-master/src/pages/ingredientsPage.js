@@ -13,9 +13,11 @@ class IngredientsPage extends Component {
     
     render() {
         return(
-            <div>
-               <h4>Ingredients Page</h4> 
-                <AddIngredient/>
+            <div className='container'>
+                <div className='form-div'>
+                    <h4>Ingredients Page</h4> 
+                        <AddIngredient/>
+                </div>
             </div>
         );
     }
