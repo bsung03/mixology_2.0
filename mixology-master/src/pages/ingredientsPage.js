@@ -15,7 +15,7 @@ class IngredientsPage extends Component {
         return(
             <div className='container'>
                 <div className='form-div'>
-                    <h4>Ingredients Page</h4> 
+                    <h4>Ingredients Page</h4>
                         <AddIngredient/>
                 </div>
             </div>
