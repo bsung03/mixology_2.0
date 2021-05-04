@@ -10,7 +10,13 @@ const recipeSchema = new Schema(
             type: String,
             required: true,
             unique: true,
-        }
+        },
+        Recipe_Ingredients: [
+            {
+                name: {type: String, required: true},
+                measurement: {type: String, required: true}
+            }
+        ]
     },
     {timestamps: true}
 );
