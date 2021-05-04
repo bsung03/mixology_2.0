@@ -13,7 +13,7 @@ const recipeSchema = new Schema(
         },
         Recipe_Ingredients: [
             {
-                _id: false,
+                _id: String,
                 name: {type: String, required: true},
                 measurement: {type: String, required: true}
             }

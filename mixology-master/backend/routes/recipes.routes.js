@@ -3,6 +3,7 @@ const router = require('express').Router();
 let Recipe = require('../models/recipe.model');
 let Ingredient = require('../models/ingredient.model');
 
+
 //---------------Get ALL Recipes----------------------//
 router.route('/').get((req,res) => {
     Recipe.find()
@@ -30,15 +31,24 @@ router.route('/:id').get((req,res) => {
 router.route('/addingredient/:id').post((req,res) => {
     Recipe.findById(req.params.id).then(recipe => {
 
-        Ingredient.find({name: req.body.name}).then(ingredient => {
+        Ingredient.findOne({name: req.body.name}).then(ingredient => {
             recipe.Recipe_Ingredients.push({
+                _id: ingredient.id,
                 name: req.body.name,
-                measurement: req.body.measurement
+                measurement: req.body.measurement,
             })
             
             recipe.save()
             res.json("Added Ingredient to recipe")
-        }).catch(err => res.status(400).json('Error: ' + err))
+        }).catch(err => res.status(400).json("Could not find ingredient"))
+        // recipe.Recipe_Ingredients.push({
+        //     _id = id,
+        //     name: req.body.name,
+        //     measurement: req.body.measurement
+        // })
+        
+        // recipe.save()
+        // res.json("Added Ingredient to recipe")
 
     }).catch(err => res.status(400).json('Error: ' + err))
 })

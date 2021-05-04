@@ -8,6 +8,14 @@ router.route('/').get((req,res) => {
         .catch(err => res.status(400).json('Error ' + err));
 })
 
+
+//---------------Get Specific Ingredient----------------------//
+router.route('/:id').get((req,res) => {
+    Ingredient.findById(req.params.id)
+        .then(ingredient => res.json(ingredient))
+        .catch(err => res.status(400).json('Error ' + err));
+})
+
 router.route('/add').post((req,res) => {
     const name = req.body.name;
 
