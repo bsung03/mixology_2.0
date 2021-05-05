@@ -7,6 +7,7 @@ import axios from 'axios';
 import LoginPage from './pages/loginPage';
 import IngredientsPage from './pages/ingredientsPage';
 import RecipePage from './pages/recipePage';
+import ProfilePage from './pages/profilePage';
 
 
 class App extends React.Component {
@@ -37,6 +38,8 @@ class App extends React.Component {
                     <Link className="nav-link" to="/login">Login</Link>
                     <Link className="nav-link" to="/ingredients">Ingredients</Link>
                     <Link className="nav-link" to="/recipes">Recipes</Link>
+                    <Link className="nav-link" to="/profile">Profile</Link>
+
                 </Nav>
               </Navbar.Collapse>
             </Navbar>
@@ -54,6 +57,10 @@ class App extends React.Component {
 
           <Route path="/recipes">
             <RecipePage/>
+          </Route>
+
+          <Route path="/profile">
+            <ProfilePage/>
           </Route>
 
           <Route path="/">
