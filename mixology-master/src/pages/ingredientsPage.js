@@ -17,15 +17,11 @@ class IngredientsPage extends Component {
             allingredients : []
         }
         this.ListAllIngredients = this.ListAllIngredients.bind(this);
-        this.AddedIngredient = this.AddedIngredient.bind(this);
+        this.loadIngredients = this.loadIngredients.bind(this);
     }
 
     componentDidMount(){
-        axios.get('http://localhost:5000/ingredients/').then(res => {
-            this.setState({
-                allingredients : res.data
-            })
-        }).catch(err => {console.log(err)});
+        this.loadIngredients()
     }
     
     ListAllIngredients(){
@@ -36,7 +32,7 @@ class IngredientsPage extends Component {
         )
     }
 
-    AddedIngredient(){
+    loadIngredients(){
         axios.get('http://localhost:5000/ingredients/').then(res => {
             this.setState({
                 allingredients : res.data
@@ -50,7 +46,7 @@ class IngredientsPage extends Component {
             <div className='container'>
                 <div className='form-div'>
                     <h4>Ingredients Page</h4>
-                    <AddIngredient rerendertable={this.AddedIngredient}/>
+                    <AddIngredient rerendertable={this.loadIngredients}/>
                     <Table>
                         <thead>
                             <th>ingredient</th>
