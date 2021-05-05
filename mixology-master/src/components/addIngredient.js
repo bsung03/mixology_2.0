@@ -38,9 +38,10 @@ class AddIngredient extends Component {
 
         axios.post('http://localhost:5000/ingredients/add', newIngredient)
         .then((response) => {
-        console.log(response);
+            this.props.rerendertable();
+            console.log(response);
         }, (error) => {
-        console.log(error);
+            console.log(error);
         });
     }
     

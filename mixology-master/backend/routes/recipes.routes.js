@@ -41,14 +41,7 @@ router.route('/addingredient/:id').post((req,res) => {
             recipe.save()
             res.json("Added Ingredient to recipe")
         }).catch(err => res.status(400).json("Could not find ingredient"))
-        // recipe.Recipe_Ingredients.push({
-        //     _id = id,
-        //     name: req.body.name,
-        //     measurement: req.body.measurement
-        // })
-        
-        // recipe.save()
-        // res.json("Added Ingredient to recipe")
+
 
     }).catch(err => res.status(400).json('Error: ' + err))
 })
