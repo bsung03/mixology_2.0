@@ -11,6 +11,21 @@ const recipeSchema = new Schema(
             required: true,
             unique: true,
         },
+        category: {
+            type: String,
+            required: true
+        },
+        thumb: {
+            type: String,
+            required: true
+        },
+        alc: {
+            type: String,
+            required: true
+        },
+        glass: {
+            type: String,
+        },
         Recipe_Ingredients: [
             {
                 _id: String,
