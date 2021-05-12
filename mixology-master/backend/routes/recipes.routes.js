@@ -27,7 +27,7 @@ router.route('/:id').get((req,res) => {
 
 
 
-//---------------Add Ingredient from Recipe----------------------//
+//---------------Add Ingredient to Recipe----------------------//
 router.route('/addingredient/:id').post((req,res) => {
     Recipe.findById(req.params.id).then(recipe => {
 
