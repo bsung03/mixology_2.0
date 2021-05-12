@@ -8,6 +8,8 @@ import LoginPage from './pages/loginPage';
 import IngredientsPage from './pages/ingredientsPage';
 import RecipePage from './pages/recipePage';
 import ProfilePage from './pages/profilePage';
+import PantryPage from './pages/pantryPage';
+
 
 
 class App extends React.Component {
@@ -39,6 +41,8 @@ class App extends React.Component {
                     <Link className="nav-link" to="/ingredients">Ingredients</Link>
                     <Link className="nav-link" to="/recipes">Recipes</Link>
                     <Link className="nav-link" to="/profile">Profile</Link>
+                    <Link className="nav-link" to="/pantry">Pantry</Link>
+
 
                 </Nav>
               </Navbar.Collapse>
@@ -61,6 +65,10 @@ class App extends React.Component {
 
           <Route path="/profile">
             <ProfilePage/>
+          </Route>
+
+          <Route path="/pantry">
+            <PantryPage/>
           </Route>
 
           <Route path="/">
