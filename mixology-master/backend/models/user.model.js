@@ -33,7 +33,12 @@ const userSchema = new Schema(
         date: {
             type: Date,
             default: Date.now
-        }
+        },
+        myPantry: [
+            {
+                type: String
+            }
+        ]
     },
     {timestamps: true}
 );
